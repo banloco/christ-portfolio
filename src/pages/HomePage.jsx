@@ -17,69 +17,100 @@ export default function HomePage() {
         </div>
 
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-indigo-400 font-medium mb-4"
-            >
-              Bonjour, je suis
-            </motion.p>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-5xl md:text-7xl font-bold mb-6"
-            >
-              {personalInfo.name}
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-xl md:text-2xl text-gray-300 mb-8"
-            >
-              {personalInfo.title}
-            </motion.p>
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-gray-400 max-w-2xl mx-auto mb-12"
-            >
-              {personalInfo.bio}
-            </motion.p>
-
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-left"
             >
-              <Link
-                to="/projects"
-                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2"
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-indigo-400 font-medium mb-4"
               >
-                Voir mes projets
-                <ArrowRightIcon className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/contact"
-                className="px-8 py-4 bg-gray-800 hover:bg-gray-700 rounded-lg font-semibold transition-all hover:scale-105"
+                Bonjour, je suis
+              </motion.p>
+              
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-4xl md:text-6xl font-bold mb-6"
               >
-                Me contacter
-              </Link>
+                {personalInfo.name}
+              </motion.h1>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="text-xl md:text-2xl text-gray-300 mb-8"
+              >
+                {personalInfo.title}
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="text-gray-400 mb-12 leading-relaxed"
+              >
+                {personalInfo.bio}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <Link
+                  to="/projects"
+                  className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2"
+                >
+                  Voir mes projets
+                  <ArrowRightIcon className="w-5 h-5" />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="px-8 py-4 bg-gray-800 hover:bg-gray-700 rounded-lg font-semibold transition-all hover:scale-105"
+                >
+                  Me contacter
+                </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Image Space - Professional Photo Placeholder */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative aspect-square max-w-md mx-auto">
+                {/* Decorative Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-blue-600/20 rounded-2xl transform rotate-6"></div>
+                
+                {/* Image Placeholder */}
+                <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700/50 overflow-hidden aspect-square flex items-center justify-center">
+                  {/* Placeholder Text */}
+                  <div className="text-center p-8">
+                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-indigo-600 to-blue-600 flex items-center justify-center">
+                      <span className="text-4xl font-bold">{personalInfo.name.charAt(0)}</span>
+                    </div>
+                    <p className="text-gray-400 text-sm">Photo professionnelle</p>
+                  </div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-indigo-600/30 rounded-full blur-2xl"></div>
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600/30 rounded-full blur-2xl"></div>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
