@@ -38,10 +38,17 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-bold text-white hover:text-indigo-400 transition-colors"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            {personalInfo.name.split(' ')[0]}
-            <span className="text-indigo-500">.</span>
+            <img 
+              src="/logo_christ_banidje.png" 
+              alt="Christ BANIDJE" 
+              className="h-10 w-10 object-contain"
+            />
+            <span className="text-2xl font-bold text-white">
+              {personalInfo.name.split(' ')[0]}
+              <span className="text-indigo-500">.</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
