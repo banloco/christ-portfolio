@@ -36,3 +36,14 @@ dist-ssr
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+
+# Development and test files
+INSTALLATION.md
+eslint.config.js
+src/components/FirebaseStatus.jsx
+src/components/FirestoreTest.jsx
+src/components/Header.jsx
+src/App.css
+src/assets/react.svg
+public/vite.svg
+public/index.html
