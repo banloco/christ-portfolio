@@ -13,17 +13,17 @@ function Reactor() {
   const bars = [0.5, 0.9, 0.35, 1, 0.6, 0.8, 0.4, 0.95, 0.55, 0.7, 0.3, 0.85];
   return (
     <div className="relative grid h-full place-items-center overflow-hidden bg-[radial-gradient(circle_at_50%_45%,#0b2a36,#05070b_70%)]">
-      <div className="bg-grid absolute inset-0 opacity-60" />
+      <div className="bg-grid-dark absolute inset-0 opacity-60" />
       <div className="relative aspect-square h-[68%]">
-        <div className="absolute inset-0 animate-spin-slower rounded-full border border-dashed border-cyan/30" />
-        <div className="absolute inset-[9%] animate-orbit-reverse rounded-full border-2 border-cyan/20 border-t-cyan/80" />
-        <div className="absolute inset-[20%] animate-spin-slow rounded-full border border-cyan/40 border-b-transparent border-l-transparent" />
-        <div className="absolute inset-[31%] rounded-full bg-cyan/10 shadow-[0_0_60px_10px_rgb(34_211_238/0.35)]" />
+        <div className="absolute inset-0 animate-spin-slower rounded-full border border-dashed border-sky-400/30" />
+        <div className="absolute inset-[9%] animate-orbit-reverse rounded-full border-2 border-sky-400/20 border-t-sky-400/80" />
+        <div className="absolute inset-[20%] animate-spin-slow rounded-full border border-sky-400/40 border-b-transparent border-l-transparent" />
+        <div className="absolute inset-[31%] rounded-full bg-sky-400/10 shadow-[0_0_60px_10px_rgb(34_211_238/0.35)]" />
         <div className="absolute inset-[38%] animate-blink rounded-full bg-[radial-gradient(circle,#e0fbff,#22d3ee_45%,transparent_70%)]" />
         {[0, 60, 120, 180, 240, 300].map((deg) => (
           <span
             key={deg}
-            className="absolute left-1/2 top-1/2 h-[14%] w-[3%] -translate-x-1/2 rounded-full bg-cyan/50"
+            className="absolute left-1/2 top-1/2 h-[14%] w-[3%] -translate-x-1/2 rounded-full bg-sky-400/50"
             style={{ transform: `translate(-50%, -50%) rotate(${deg}deg) translateY(-210%)` }}
           />
         ))}
@@ -32,14 +32,14 @@ function Reactor() {
         {bars.map((h, i) => (
           <span
             key={i}
-            className="w-1 origin-bottom animate-blink rounded-full bg-cyan/70"
+            className="w-1 origin-bottom animate-blink rounded-full bg-sky-400/70"
             style={{ height: `${h * 100}%`, ...delay(i * 0.12) }}
           />
         ))}
       </div>
-      <p className="absolute left-5 top-4 font-mono text-[11px] tracking-[0.3em] text-cyan/70">J.A.R.V.I.S</p>
-      <p className="absolute right-5 top-4 flex items-center gap-2 font-mono text-[11px] text-cyan/70">
-        <span className="size-1.5 animate-blink rounded-full bg-cyan" /> « HEY JARVIS »
+      <p className="absolute left-5 top-4 font-mono text-[11px] tracking-[0.3em] text-sky-400/70">J.A.R.V.I.S</p>
+      <p className="absolute right-5 top-4 flex items-center gap-2 font-mono text-[11px] text-sky-400/70">
+        <span className="size-1.5 animate-blink rounded-full bg-sky-400" /> « HEY JARVIS »
       </p>
     </div>
   );
@@ -102,7 +102,7 @@ function Chat({ lang }: { lang: Locale }) {
         <p
           key={m.text}
           className={`max-w-[80%] animate-float rounded-2xl px-3 py-1.5 text-[clamp(10px,4.2cqh,13px)] leading-snug shadow-lg ${
-            m.me ? "self-end rounded-br-sm bg-[#005c4b] text-white" : "self-start rounded-bl-sm bg-panel-2 text-fg"
+            m.me ? "self-end rounded-br-sm bg-[#005c4b] text-white" : "self-start rounded-bl-sm bg-slate-800 text-slate-100"
           }`}
           style={delay(i * 0.6)}
         >
@@ -125,7 +125,7 @@ function Alerts() {
     ["192.168.7.45", "CRITICAL", 12],
     ["10.0.0.5", "MEDIUM", 4],
   ] as const;
-  const color = { LOW: "text-muted", MEDIUM: "text-amber-300", CRITICAL: "text-red-400" };
+  const color = { LOW: "text-slate-400", MEDIUM: "text-amber-300", CRITICAL: "text-red-400" };
   return (
     <div className="relative h-full overflow-hidden bg-[radial-gradient(circle_at_70%_20%,#2a0d10,#05070b_70%)] p-5 font-mono text-[12px]">
       <p className="mb-3 tracking-[0.2em] text-red-300/70">SPARK · WINDOW 30s</p>
@@ -133,11 +133,11 @@ function Alerts() {
         {rows.map(([ip, level, fails], i) => (
           <p
             key={ip}
-            className={`flex justify-between rounded-md border border-line bg-ink/60 px-3 py-1.5 ${level === "CRITICAL" ? "animate-blink" : ""}`}
+            className={`flex justify-between rounded-md border border-white/10 bg-slate-950/60 px-3 py-1.5 ${level === "CRITICAL" ? "animate-blink" : ""}`}
             style={delay(i * 0.3)}
           >
-            <span className="text-fg/80">{ip}</span>
-            <span className="text-muted">401 × {fails}</span>
+            <span className="text-slate-100/80">{ip}</span>
+            <span className="text-slate-400">401 × {fails}</span>
             <span className={color[level]}>{level}</span>
           </p>
         ))}

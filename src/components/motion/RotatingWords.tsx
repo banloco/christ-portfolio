@@ -29,7 +29,7 @@ export default function RotatingWords({ words }: { words: string[] }) {
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           exit={{ y: "-60%", opacity: 0, filter: "blur(8px)" }}
           transition={{ duration: 0.45, ease: [0.2, 0.7, 0.2, 1] }}
-          className="text-gradient col-start-1 row-start-1"
+          className="text-accent col-start-1 row-start-1"
         >
           {words[index]}
         </motion.span>

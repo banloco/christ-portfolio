@@ -24,7 +24,6 @@ const en: Dictionary = {
     titleStart: "I build",
     rotating: ["web applications", "AI models", "data pipelines", "security tools", "automations"],
     titleEnd: "that save people time.",
-    greeting: "Hi, I'm",
     intro:
       "Based in Abomey-Calavi, trained at Epitech and with a background in law, I bring code, data and business needs together to deliver solutions with measurable impact.",
     ctaProjects: "See my projects",
@@ -145,6 +144,7 @@ const en: Dictionary = {
   skills: {
     label: "Skills",
     title: "My toolbox",
+    stackLabel: "Tech I work with",
     groups: [
       { title: "Frontend", items: ["React", "Next.js", "Vue.js", "TypeScript", "JavaScript ES6+", "Tailwind CSS", "HTML5 / CSS3"] },
       { title: "Backend", items: ["Python", "Flask", "FastAPI", "Laravel", "Symfony", "PHP", "REST APIs"] },

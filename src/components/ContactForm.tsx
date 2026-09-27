@@ -5,7 +5,7 @@ import type { Dictionary } from "@/i18n/fr";
 import { site } from "@/lib/site";
 
 const field =
-  "mt-2 w-full rounded-xl border border-line-strong bg-panel-2 px-4 py-3 text-fg placeholder:text-muted/60 outline-none transition-colors focus:border-cyan";
+  "mt-2 w-full rounded-lg border border-line-strong bg-page px-4 py-3 text-fg placeholder:text-muted/60 outline-none transition-colors focus:border-accent focus:ring-4 focus:ring-accent/10";
 
 /**
  * Le site est un export statique (Firebase Hosting, sans serveur) :
@@ -20,13 +20,13 @@ export default function ContactForm({ t }: { t: Dictionary["contact"] }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="border-gradient rounded-3xl bg-panel/80 p-6 backdrop-blur sm:p-8">
+    <form onSubmit={onSubmit} className="rounded-2xl bg-surface p-6 text-fg shadow-2xl shadow-black/30 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm text-muted">
+        <label className="block text-sm font-medium text-fg">
           {t.name}
           <input name="name" required autoComplete="name" className={field} />
         </label>
-        <label className="block text-sm text-muted">
+        <label className="block text-sm font-medium text-fg">
           {t.email}
           <input name="email" type="email" required autoComplete="email" className={field} />
         </label>
@@ -37,7 +37,7 @@ export default function ContactForm({ t }: { t: Dictionary["contact"] }) {
       </label>
       <button
         type="submit"
-        className="bg-gradient-brand mt-6 w-full rounded-full px-6 py-3.5 font-medium text-ink transition-transform hover:-translate-y-0.5"
+        className="mt-6 w-full rounded-lg bg-accent px-6 py-3.5 font-semibold text-white transition-colors hover:bg-accent-strong"
       >
         {t.send}
       </button>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Inter, JetBrains_Mono, Sora } from "next/font/google";
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
@@ -10,11 +10,11 @@ import { homePath, locales, ogLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
 
-const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400", "600", "700"] });
+const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin"], weight: ["500", "600", "700", "800"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], weight: ["400", "500"] });
 
-export const fontClasses = `${sora.variable} ${inter.variable} ${jetbrains.variable}`;
+export const fontClasses = `${jakarta.variable} ${inter.variable} ${jetbrains.variable}`;
 
 export function buildMetadata(lang: Locale): Metadata {
   const t = getDictionary(lang).meta;
@@ -77,7 +77,7 @@ export default function RootShell({ lang, children }: { lang: Locale; children: 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(lang)) }}
         />
       </head>
-      <body className="grain min-h-screen overflow-x-clip bg-ink font-sans text-fg">
+      <body className="min-h-screen overflow-x-clip bg-page font-sans text-fg">
         <MotionProvider>
           <ScrollProgress />
           <Header lang={lang} t={t.nav} />

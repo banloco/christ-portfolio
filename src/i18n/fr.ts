@@ -22,7 +22,6 @@ const fr = {
     titleStart: "Je conçois des",
     rotating: ["applications web", "modèles d'IA", "pipelines data", "outils de sécurité", "automatisations"],
     titleEnd: "qui font gagner du temps.",
-    greeting: "Salut, moi c'est",
     intro:
       "Basé à Abomey-Calavi, formé à Epitech et juriste de formation, je relie le code, la donnée et les enjeux métier pour livrer des solutions à l'impact mesurable.",
     ctaProjects: "Voir mes projets",
@@ -143,6 +142,7 @@ const fr = {
   skills: {
     label: "Compétences",
     title: "Ma boîte à outils",
+    stackLabel: "Technologies utilisées",
     groups: [
       { title: "Frontend", items: ["React", "Next.js", "Vue.js", "TypeScript", "JavaScript ES6+", "Tailwind CSS", "HTML5 / CSS3"] },
       { title: "Backend", items: ["Python", "Flask", "FastAPI", "Laravel", "Symfony", "PHP", "API REST"] },

@@ -6,7 +6,6 @@ import type { LocalizedProject } from "@/lib/projects";
 import ProjectCoverArt from "@/components/ProjectCovers";
 import Tilt from "@/components/motion/Tilt";
 import CountUp from "@/components/motion/CountUp";
-import Spotlight from "@/components/motion/Spotlight";
 import { ArrowUpRightIcon, GithubIcon, LockIcon } from "@/components/icons";
 
 type T = Dictionary["projects"];
@@ -22,21 +21,21 @@ function Visual({ project, lang, t, sizes }: { project: LocalizedProject; lang: 
   return (
     <div className="relative">
       {second && (
-        <div className="absolute -right-4 -top-6 hidden w-[70%] rotate-3 overflow-hidden rounded-xl border border-line-strong opacity-70 shadow-2xl sm:block">
+        <div className="absolute -right-3 -top-5 hidden w-[68%] rotate-2 overflow-hidden rounded-lg border border-line opacity-80 shadow-xl sm:block">
           <Image src={second.src} alt="" width={second.width} height={second.height} sizes="400px" className="w-full" />
         </div>
       )}
-      <div className="relative overflow-hidden rounded-2xl border border-line-strong bg-panel shadow-[0_30px_80px_-20px_rgb(0_0_0/0.8)]">
-        <div className="flex items-center gap-3 border-b border-line bg-panel-2/80 px-4 py-2.5">
+      <div className="relative overflow-hidden rounded-xl border border-line bg-surface shadow-[0_24px_60px_-28px_rgb(15_23_42/0.45)]">
+        <div className="flex items-center gap-3 border-b border-line bg-surface-2 px-4 py-2.5">
           <span className="flex gap-1.5" aria-hidden>
             <span className="size-2.5 rounded-full bg-[#ff5f57]/80" />
             <span className="size-2.5 rounded-full bg-[#febc2e]/80" />
             <span className="size-2.5 rounded-full bg-[#28c840]/80" />
           </span>
-          <span className="mx-auto max-w-[60%] truncate rounded-md bg-ink/60 px-3 py-0.5 font-mono text-[11px] text-muted">
+          <span className="mx-auto max-w-[60%] truncate rounded-md bg-surface px-3 py-0.5 font-mono text-[11px] text-muted">
             {address}
           </span>
-          {project.cover && <span className="font-mono text-[10px] uppercase tracking-wider text-muted/70">{t.illustration}</span>}
+          {project.cover && <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">{t.illustration}</span>}
         </div>
         <div className="aspect-[16/10]">
           {main ? (
@@ -65,7 +64,7 @@ function Links({ project, t }: { project: LocalizedProject; t: T }) {
           href={project.live}
           target="_blank"
           rel="noreferrer"
-          className="group inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
+          className="group inline-flex items-center gap-2 rounded-lg bg-night px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent"
         >
           {t.live}
           <ArrowUpRightIcon width={16} height={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -76,14 +75,14 @@ function Links({ project, t }: { project: LocalizedProject; t: T }) {
           href={project.github}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-sm transition-colors hover:border-cyan hover:text-cyan"
+          className="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface px-5 py-2.5 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
         >
           <GithubIcon width={16} height={16} />
           {t.code}
         </a>
       )}
       {project.private && (
-        <span className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm text-muted">
+        <span className="inline-flex items-center gap-2 px-1 py-2.5 text-sm text-muted">
           <LockIcon width={15} height={15} />
           {t.private}
         </span>
@@ -96,7 +95,7 @@ function Stack({ items }: { items: string[] }) {
   return (
     <ul className="flex flex-wrap gap-1.5">
       {items.map((tech) => (
-        <li key={tech} className="rounded-md border border-line bg-panel/60 px-2 py-1 font-mono text-[11px] text-muted">
+        <li key={tech} className="rounded-md bg-surface-2 px-2.5 py-1 text-xs font-medium text-muted">
           {tech}
         </li>
       ))}
@@ -109,31 +108,26 @@ function Featured({ project, index, lang, t }: { project: LocalizedProject; inde
   return (
     <article className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <div data-reveal className={reversed ? "lg:order-2" : ""}>
-        <div className="relative">
-          <div
-            aria-hidden
-            className="absolute -inset-6 rounded-[3rem] opacity-30 blur-3xl"
-            style={{ background: `radial-gradient(circle at 50% 50%, ${project.accent}, transparent 70%)` }}
-          />
-          <Tilt>
+        <div className="rounded-2xl p-6 sm:p-10" style={{ background: `${project.accent}1f` }}>
+          <Tilt max={4}>
             <Visual project={project} lang={lang} t={t} sizes="(min-width: 1024px) 560px, 92vw" />
           </Tilt>
         </div>
       </div>
 
       <div data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties} className={reversed ? "lg:order-1" : ""}>
-        <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-muted">
-          <span className="text-gradient font-semibold">{String(index + 1).padStart(2, "0")}</span>
+        <p className="flex items-center gap-3 text-sm font-medium text-muted">
+          <span className="font-mono font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span>
           <span className="h-px w-8 bg-line-strong" />
           {project.context} · {project.year}
         </p>
-        <h3 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{project.title}</h3>
-        <p className="mt-4 text-lg text-fg/90">{project.summary}</p>
+        <h3 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">{project.title}</h3>
+        <p className="mt-4 text-lg font-medium text-fg">{project.summary}</p>
         <p className="mt-3 leading-relaxed text-muted">{project.description}</p>
 
         {project.metric && (
           <p className="mt-6 flex items-baseline gap-3">
-            <CountUp value={project.metric} className="text-gradient font-display text-4xl font-semibold" />
+            <CountUp value={project.metric} className="font-display text-4xl font-extrabold text-accent" />
             <span className="text-sm text-muted">{project.metricLabel}</span>
           </p>
         )}
@@ -141,7 +135,7 @@ function Featured({ project, index, lang, t }: { project: LocalizedProject; inde
         {project.highlights && (
           <ul className="mt-6 space-y-2.5">
             {project.highlights.map((h) => (
-              <li key={h} className="flex gap-3 text-[15px] text-fg/85">
+              <li key={h} className="flex gap-3 text-[15px] text-fg/80">
                 <span className="mt-2 size-1.5 shrink-0 rounded-full" style={{ background: project.accent }} aria-hidden />
                 {h}
               </li>
@@ -165,18 +159,18 @@ function Card({ project, lang, t, index }: { project: LocalizedProject; lang: Lo
     <article
       data-reveal
       style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
-      className="spotlight flex flex-col rounded-3xl border border-line bg-panel/70 p-4 transition-colors hover:border-line-strong"
+      className="flex flex-col rounded-xl border border-line bg-surface p-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgb(15_23_42/0.4)]"
     >
       <Visual project={project} lang={lang} t={t} sizes="(min-width: 1024px) 380px, 92vw" />
       <div className="flex flex-1 flex-col px-2 pb-2 pt-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+        <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted">
           {project.context} · {project.year}
         </p>
-        <h3 className="mt-3 font-display text-xl font-semibold">{project.title}</h3>
+        <h3 className="mt-2 font-display text-xl font-bold">{project.title}</h3>
         <p className="mt-2 text-[15px] leading-relaxed text-muted">{project.summary} {project.description}</p>
         {project.metric && (
           <p className="mt-4 flex items-baseline gap-2">
-            <CountUp value={project.metric} className="text-gradient font-display text-2xl font-semibold" />
+            <CountUp value={project.metric} className="font-display text-2xl font-extrabold text-accent" />
             <span className="text-sm text-muted">{project.metricLabel}</span>
           </p>
         )}
@@ -210,14 +204,14 @@ export default function ProjectShowcase({ projects, lang, t, githubUrl }: {
 
       {others.length > 0 && (
         <>
-          <h3 data-reveal className="mb-8 mt-32 font-display text-2xl font-semibold">
+          <h3 data-reveal className="mb-8 mt-28 border-t border-line pt-16 font-display text-2xl font-bold">
             {t.other}
           </h3>
-          <Spotlight className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {others.map((project, i) => (
               <Card key={project.id} project={project} lang={lang} t={t} index={i} />
             ))}
-          </Spotlight>
+          </div>
         </>
       )}
 
@@ -226,7 +220,7 @@ export default function ProjectShowcase({ projects, lang, t, githubUrl }: {
         href={githubUrl}
         target="_blank"
         rel="noreferrer"
-        className="mt-12 inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-sm transition-colors hover:border-cyan hover:text-cyan"
+        className="mt-12 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
       >
         <GithubIcon width={16} height={16} />
         {t.more}

@@ -14,15 +14,15 @@ export const metadata: Metadata = {
 export default function GlobalNotFound() {
   return (
     <html lang="fr" className={`${fontClasses} antialiased`}>
-      <body className="grid min-h-screen place-items-center bg-ink px-5 font-sans text-fg">
+      <body className="grid min-h-screen place-items-center bg-page px-5 font-sans text-fg">
         <main className="max-w-md text-center">
-          <p className="font-display text-7xl font-semibold text-gradient">404</p>
+          <p className="font-display text-7xl font-extrabold text-accent">404</p>
           <h1 className="mt-6 font-display text-2xl font-semibold">{fr.notFound.title}</h1>
           <p className="mt-2 text-muted">{fr.notFound.text}</p>
           <p lang="en" className="mt-1 text-sm text-muted">{en.notFound.text}</p>
           <div className="mt-8 flex justify-center gap-3">
-            <Link href="/" className="bg-gradient-brand rounded-full px-5 py-2.5 font-medium text-ink">{fr.notFound.back}</Link>
-            <Link href="/en/" lang="en" className="rounded-full border border-line-strong px-5 py-2.5">{en.notFound.back}</Link>
+            <Link href="/" className="rounded-lg bg-night px-5 py-2.5 font-semibold text-white">{fr.notFound.back}</Link>
+            <Link href="/en/" lang="en" className="rounded-lg border border-line-strong bg-surface px-5 py-2.5 font-semibold">{en.notFound.back}</Link>
           </div>
         </main>
       </body>
