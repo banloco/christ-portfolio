@@ -70,6 +70,8 @@ export default function RootShell({ lang, children }: { lang: Locale; children: 
       {/* Règle écrite pour pages/ (next/head) : sans objet dans app/. */}
       {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
+        {/* Site clair uniquement : empêche le mode sombre forcé du navigateur de l'assombrir. */}
+        <meta name="color-scheme" content="only light" />
         {/* Active les animations d'apparition si le JS tourne ; si le script d'animation n'a pas démarré après 2,5 s, tout le contenu est affiché. */}
         <script dangerouslySetInnerHTML={{ __html: revealBootstrap }} />
         <script
