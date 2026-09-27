@@ -27,9 +27,9 @@ export default function RotatingWords({ words }: { words: string[] }) {
         <motion.span
           key={words[index]}
           aria-hidden
-          initial={{ clipPath: "inset(0 100% 0 0)" }}
-          animate={{ clipPath: "inset(0 0% 0 0)" }}
-          exit={{ clipPath: "inset(0 0 0 100%)" }}
+          initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+          animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          exit={{ clipPath: "inset(0% 0% 0% 100%)" }}
           transition={{ duration: 0.45, ease: [0.65, 0, 0.35, 1] }}
           className={`${word} justify-self-start bg-lime`}
         >

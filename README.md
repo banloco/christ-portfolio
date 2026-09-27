@@ -3,7 +3,7 @@
 Portfolio bilingue (français / anglais) de Christ Banidje, développeur Fullstack & Data / IA.
 
 - **Stack** : Next.js 16 (App Router, export statique), TypeScript, Tailwind CSS 4
-- **Hébergement** : Firebase Hosting, déployé automatiquement par GitHub Actions à chaque push sur `main` (aperçu sur chaque pull request)
+- **Hébergement** : export statique (`out/`), à publier sur n'importe quel hébergeur de sites statiques (Vercel, Netlify, GitHub Pages…)
 
 ## Démarrer
 
@@ -23,7 +23,7 @@ npm run build   # génère le site statique dans out/
 | Photo, CV (PDF) | `public/` |
 | Couleurs et polices | `src/app/globals.css` (`@theme`) et `src/components/RootShell.tsx` |
 
-L'adresse publique du site (balises SEO, sitemap) vient de `NEXT_PUBLIC_SITE_URL`, par défaut `https://mon-portfolio-b839d.web.app`.
+L'adresse publique du site (balises SEO, sitemap) vient de `NEXT_PUBLIC_SITE_URL`. Sur Vercel, l'adresse du projet est utilisée automatiquement ; sinon, `https://christbanidje.me` par défaut.
 
 ## Structure
 

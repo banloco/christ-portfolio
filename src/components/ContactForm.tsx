@@ -8,7 +8,7 @@ const field =
   "mt-2 w-full rounded-xl border border-transparent bg-surface px-4 py-3 text-fg placeholder:text-muted/60 outline-none transition-colors focus:border-night focus:bg-page";
 
 /**
- * Le site est un export statique (Firebase Hosting, sans serveur) :
+ * Le site est un export statique (sans serveur) :
  * le formulaire ouvre la messagerie du visiteur avec le message prérempli.
  */
 export default function ContactForm({ t }: { t: Dictionary["contact"] }) {
