@@ -28,8 +28,6 @@ type Project = {
   /** Capture principale (et éventuellement une seconde, affichée en retrait). */
   images?: { src: string; width: number; height: number }[];
   cover?: ProjectCover;
-  /** Couleur d'accent du projet (halo derrière le visuel). */
-  accent: string;
   text: Record<Locale, ProjectText>;
 };
 
@@ -43,7 +41,6 @@ const projects: Project[] = [
     github: "https://github.com/banloco/jarvis",
     featured: true,
     cover: "reactor",
-    accent: "#22d3ee",
     text: {
       fr: {
         title: "J.A.R.V.I.S",
@@ -84,7 +81,6 @@ const projects: Project[] = [
       { src: "/projects/eolekare-shop.webp", width: 1440, height: 900 },
       { src: "/projects/eolekare-home.webp", width: 1440, height: 900 },
     ],
-    accent: "#f5c26b",
     text: {
       fr: {
         title: "Eolekare",
@@ -120,7 +116,6 @@ const projects: Project[] = [
     private: true,
     featured: true,
     cover: "radar",
-    accent: "#34d399",
     text: {
       fr: {
         title: "Détection d'intrusions par IA",
@@ -157,7 +152,6 @@ const projects: Project[] = [
     live: "https://www.danxolabs.com",
     featured: true,
     images: [{ src: "/projects/danxolabs.webp", width: 1440, height: 900 }],
-    accent: "#2dd4bf",
     text: {
       fr: {
         title: "Danxo Labs",
@@ -192,7 +186,6 @@ const projects: Project[] = [
     metric: "+40 %",
     private: true,
     cover: "chat",
-    accent: "#25d366",
     text: {
       fr: {
         title: "Chatbot WhatsApp de qualification",
@@ -218,7 +211,6 @@ const projects: Project[] = [
     stack: ["Python", "PostgreSQL", "dbt", "Scikit-Learn", "Metabase", "Docker"],
     github: "https://github.com/banloco/business-inteligence-machine-learning",
     images: [{ src: "/projects/olist-dashboard.webp", width: 1440, height: 722 }],
-    accent: "#60a5fa",
     text: {
       fr: {
         title: "Business Intelligence & ML",
@@ -242,7 +234,6 @@ const projects: Project[] = [
     stack: ["Kafka", "Spark Streaming", "Elasticsearch", "Kibana", "Docker"],
     github: "https://github.com/banloco/Real_Time_Network_Threat_Detector",
     cover: "alerts",
-    accent: "#f87171",
     text: {
       fr: {
         title: "Real-Time Threat Detector",

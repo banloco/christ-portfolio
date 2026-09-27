@@ -18,7 +18,9 @@ const fr = {
   },
   hero: {
     badge: "Disponible pour missions freelance et opportunités",
+    status: "Disponible pour missions",
     kicker: "Développeur Fullstack · Data / IA · Cybersécurité",
+    headline: "Développeur fullstack & ingénieur data / IA",
     titleStart: "Je conçois des",
     rotating: ["applications web", "modèles d'IA", "pipelines data", "outils de sécurité", "automatisations"],
     titleEnd: "qui font gagner du temps.",

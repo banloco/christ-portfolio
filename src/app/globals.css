@@ -1,22 +1,21 @@
 @import "tailwindcss";
 
 /*
- * Thème clair et sobre : papier cassé, texte bleu nuit, un seul accent bleu.
- * Les blocs sombres (contact, pied de page) utilisent « night ».
+ * Direction « Tech » : blanc, noir et vert citron, mise en page en blocs.
+ * Le citron sert de fond (boutons, pastilles, blocs), jamais de couleur de texte sur blanc.
  */
 @theme static {
-  --color-page: #f7f7f4;
-  --color-surface: #ffffff;
-  --color-surface-2: #f1f1ed;
-  --color-line: rgb(15 23 42 / 0.09);
-  --color-line-strong: rgb(15 23 42 / 0.18);
-  --color-fg: #0f172a;
-  --color-muted: #566074;
-  --color-accent: #1d4ed8;
-  --color-accent-strong: #1e3a8a;
-  --color-accent-soft: #e6ecfb;
-  --color-night: #0b1324;
-  --color-night-2: #121c31;
+  --color-page: #ffffff;
+  --color-surface: #f4f4f2;
+  --color-surface-2: #e9e9e5;
+  --color-line: rgb(10 10 10 / 0.08);
+  --color-line-strong: rgb(10 10 10 / 0.16);
+  --color-fg: #0a0a0a;
+  --color-muted: #5f6168;
+  --color-lime: #c6f432;
+  --color-lime-strong: #b2de1f;
+  --color-night: #0a0a0a;
+  --color-night-2: #171717;
 
   --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -63,14 +62,14 @@ body {
 }
 
 ::selection {
-  background: rgb(29 78 216 / 0.18);
+  background: #c6f432;
 }
 
 /* Quadrillage discret (fond de l'accueil) et sa variante pour les illustrations sombres. */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgb(10 10 10 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 10 10 / 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 80% 70% at 70% 20%, black 20%, transparent 75%);
 }

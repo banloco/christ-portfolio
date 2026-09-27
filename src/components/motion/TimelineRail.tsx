@@ -15,7 +15,7 @@ export default function TimelineRail({ children }: { children: ReactNode }) {
       <motion.div
         aria-hidden
         style={{ scaleY }}
-        className="absolute bottom-0 left-[7px] top-0 w-px origin-top bg-accent sm:left-[11px]"
+        className="absolute bottom-0 left-[7px] top-0 w-px origin-top bg-night sm:left-[11px]"
       />
       {children}
     </div>

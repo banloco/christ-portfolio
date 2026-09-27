@@ -51,15 +51,15 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary["nav"]
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled || open ? "border-line bg-page/85 backdrop-blur-lg" : "border-transparent bg-transparent"
+        scrolled || open ? "border-line bg-page/85 backdrop-blur-lg" : "border-transparent bg-page"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-3">
-          <span className="grid size-9 place-items-center rounded-lg bg-night font-display text-sm font-bold text-white">CB</span>
+          <span className="grid size-9 place-items-center rounded-xl bg-night font-display text-sm font-extrabold text-lime">CB</span>
           <span className="leading-tight">
             <span className="block font-display text-[15px] font-bold tracking-tight">Christ Banidje</span>
-            <span className="hidden text-xs text-muted sm:block">Fullstack · Data / IA</span>
+            <span className="hidden font-mono text-[11px] text-muted sm:block">fullstack · data / ia</span>
           </span>
         </a>
 
@@ -69,13 +69,13 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary["nav"]
               key={id}
               href={`#${id}`}
               aria-current={active === id ? "location" : undefined}
-              className={`relative px-3 py-2 text-sm font-medium transition-colors ${active === id ? "text-fg" : "text-muted hover:text-fg"}`}
+              className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${active === id ? "text-fg" : "text-muted hover:text-fg"}`}
             >
               {t[id]}
               {active === id && (
                 <motion.span
-                  layoutId="nav-underline"
-                  className="absolute inset-x-3 -bottom-[13px] h-0.5 rounded-full bg-accent"
+                  layoutId="nav-pill"
+                  className="absolute inset-0 -z-10 rounded-lg bg-surface"
                   transition={{ type: "spring", stiffness: 400, damping: 34 }}
                 />
               )}
@@ -95,7 +95,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary["nav"]
           </a>
           <a
             href="#contact"
-            className="hidden h-9 items-center rounded-lg bg-night px-4 text-sm font-semibold text-white transition-colors hover:bg-accent sm:inline-flex"
+            className="hidden h-9 items-center rounded-lg bg-lime px-4 text-sm font-semibold text-fg transition-colors hover:bg-lime-strong sm:inline-flex"
           >
             {t.contact}
           </a>
@@ -105,7 +105,7 @@ export default function Header({ lang, t }: { lang: Locale; t: Dictionary["nav"]
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t.close : t.menu}
-            className="grid size-9 place-items-center rounded-lg border border-line-strong lg:hidden"
+            className="grid size-9 place-items-center rounded-lg bg-surface lg:hidden"
           >
             {open ? <CloseIcon width={18} height={18} /> : <MenuIcon width={18} height={18} />}
           </button>

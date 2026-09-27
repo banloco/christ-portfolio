@@ -12,18 +12,18 @@ const delay = (s: number) => ({ animationDelay: `${s}s` }) as CSSProperties;
 function Reactor() {
   const bars = [0.5, 0.9, 0.35, 1, 0.6, 0.8, 0.4, 0.95, 0.55, 0.7, 0.3, 0.85];
   return (
-    <div className="relative grid h-full place-items-center overflow-hidden bg-[radial-gradient(circle_at_50%_45%,#0b2a36,#05070b_70%)]">
+    <div className="relative grid h-full place-items-center overflow-hidden bg-[radial-gradient(circle_at_50%_45%,#1b2410,#05070b_70%)]">
       <div className="bg-grid-dark absolute inset-0 opacity-60" />
       <div className="relative aspect-square h-[68%]">
-        <div className="absolute inset-0 animate-spin-slower rounded-full border border-dashed border-sky-400/30" />
-        <div className="absolute inset-[9%] animate-orbit-reverse rounded-full border-2 border-sky-400/20 border-t-sky-400/80" />
-        <div className="absolute inset-[20%] animate-spin-slow rounded-full border border-sky-400/40 border-b-transparent border-l-transparent" />
-        <div className="absolute inset-[31%] rounded-full bg-sky-400/10 shadow-[0_0_60px_10px_rgb(34_211_238/0.35)]" />
-        <div className="absolute inset-[38%] animate-blink rounded-full bg-[radial-gradient(circle,#e0fbff,#22d3ee_45%,transparent_70%)]" />
+        <div className="absolute inset-0 animate-spin-slower rounded-full border border-dashed border-[#c6f432]/30" />
+        <div className="absolute inset-[9%] animate-orbit-reverse rounded-full border-2 border-[#c6f432]/20 border-t-[#c6f432]/80" />
+        <div className="absolute inset-[20%] animate-spin-slow rounded-full border border-[#c6f432]/40 border-b-transparent border-l-transparent" />
+        <div className="absolute inset-[31%] rounded-full bg-[#c6f432]/10 shadow-[0_0_60px_10px_rgb(198_244_50/0.35)]" />
+        <div className="absolute inset-[38%] animate-blink rounded-full bg-[radial-gradient(circle,#f6ffd9,#c6f432_45%,transparent_70%)]" />
         {[0, 60, 120, 180, 240, 300].map((deg) => (
           <span
             key={deg}
-            className="absolute left-1/2 top-1/2 h-[14%] w-[3%] -translate-x-1/2 rounded-full bg-sky-400/50"
+            className="absolute left-1/2 top-1/2 h-[14%] w-[3%] -translate-x-1/2 rounded-full bg-[#c6f432]/50"
             style={{ transform: `translate(-50%, -50%) rotate(${deg}deg) translateY(-210%)` }}
           />
         ))}
@@ -32,14 +32,14 @@ function Reactor() {
         {bars.map((h, i) => (
           <span
             key={i}
-            className="w-1 origin-bottom animate-blink rounded-full bg-sky-400/70"
+            className="w-1 origin-bottom animate-blink rounded-full bg-[#c6f432]/70"
             style={{ height: `${h * 100}%`, ...delay(i * 0.12) }}
           />
         ))}
       </div>
-      <p className="absolute left-5 top-4 font-mono text-[11px] tracking-[0.3em] text-sky-400/70">J.A.R.V.I.S</p>
-      <p className="absolute right-5 top-4 flex items-center gap-2 font-mono text-[11px] text-sky-400/70">
-        <span className="size-1.5 animate-blink rounded-full bg-sky-400" /> « HEY JARVIS »
+      <p className="absolute left-5 top-4 font-mono text-[11px] tracking-[0.3em] text-[#c6f432]/70">J.A.R.V.I.S</p>
+      <p className="absolute right-5 top-4 flex items-center gap-2 font-mono text-[11px] text-[#c6f432]/70">
+        <span className="size-1.5 animate-blink rounded-full bg-[#c6f432]" /> « HEY JARVIS »
       </p>
     </div>
   );

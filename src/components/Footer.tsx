@@ -10,9 +10,9 @@ export default function Footer({ t }: { t: Dictionary["footer"] }) {
   ];
 
   return (
-    <footer className="border-t border-white/10 bg-night text-white">
+    <footer>
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <p className="text-sm text-slate-400">
+        <p className="font-mono text-xs text-muted">
           © {new Date().getFullYear()} {site.name}. {t.rights}
         </p>
         <div className="flex items-center gap-2">
@@ -23,12 +23,12 @@ export default function Footer({ t }: { t: Dictionary["footer"] }) {
               aria-label={label}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noreferrer"
-              className="grid size-10 place-items-center rounded-lg border border-white/10 text-slate-400 transition-colors hover:border-blue-300 hover:text-blue-300"
+              className="grid size-10 place-items-center rounded-xl bg-surface transition-colors hover:bg-night hover:text-lime"
             >
               <Icon width={18} height={18} />
             </a>
           ))}
-          <a href="#top" className="ml-2 text-sm text-slate-400 transition-colors hover:text-white">
+          <a href="#top" className="ml-2 font-mono text-xs text-muted transition-colors hover:text-fg">
             {t.top} ↑
           </a>
         </div>

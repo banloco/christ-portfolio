@@ -20,7 +20,9 @@ const en: Dictionary = {
   },
   hero: {
     badge: "Available for freelance work and new opportunities",
+    status: "Open to work",
     kicker: "Full-Stack Developer · Data / AI · Cybersecurity",
+    headline: "Full-stack developer & data / AI engineer",
     titleStart: "I build",
     rotating: ["web applications", "AI models", "data pipelines", "security tools", "automations"],
     titleEnd: "that save people time.",

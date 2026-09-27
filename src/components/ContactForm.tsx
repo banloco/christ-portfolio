@@ -5,7 +5,7 @@ import type { Dictionary } from "@/i18n/fr";
 import { site } from "@/lib/site";
 
 const field =
-  "mt-2 w-full rounded-lg border border-line-strong bg-page px-4 py-3 text-fg placeholder:text-muted/60 outline-none transition-colors focus:border-accent focus:ring-4 focus:ring-accent/10";
+  "mt-2 w-full rounded-xl border border-transparent bg-surface px-4 py-3 text-fg placeholder:text-muted/60 outline-none transition-colors focus:border-night focus:bg-page";
 
 /**
  * Le site est un export statique (Firebase Hosting, sans serveur) :
@@ -20,7 +20,7 @@ export default function ContactForm({ t }: { t: Dictionary["contact"] }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-2xl bg-surface p-6 text-fg shadow-2xl shadow-black/30 sm:p-8">
+    <form onSubmit={onSubmit} className="rounded-3xl bg-page p-6 text-fg sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-medium text-fg">
           {t.name}
@@ -37,7 +37,7 @@ export default function ContactForm({ t }: { t: Dictionary["contact"] }) {
       </label>
       <button
         type="submit"
-        className="mt-6 w-full rounded-lg bg-accent px-6 py-3.5 font-semibold text-white transition-colors hover:bg-accent-strong"
+        className="mt-6 w-full rounded-xl bg-lime px-6 py-3.5 font-semibold text-fg transition-colors hover:bg-night hover:text-lime"
       >
         {t.send}
       </button>
