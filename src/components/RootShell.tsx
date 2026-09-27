@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
-import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
@@ -54,6 +53,7 @@ function personJsonLd(lang: Locale) {
     address: { "@type": "PostalAddress", addressLocality: "Abomey-Calavi", addressCountry: "BJ" },
     alumniOf: [{ "@type": "EducationalOrganization", name: "Epitech Bénin" }],
     knowsLanguage: ["fr", "en", "es"],
+    worksFor: { "@type": "Organization", name: "Danxo Labs", url: "https://www.danxolabs.com" },
     sameAs: [site.github, site.linkedin],
   };
 }

@@ -39,13 +39,14 @@ const fr = {
     label: "À propos",
     title: "Un profil hybride, tourné vers les résultats",
     paragraphs: [
-      "Je suis développeur fullstack et data / IA. Au quotidien, je construis des applications web complètes, j'entraîne des modèles de machine learning et j'automatise les tâches répétitives qui ralentissent les équipes.",
+      "Je suis développeur fullstack et data / IA, et co-fondateur de l'agence digitale Danxo Labs. Au quotidien, je construis des applications web complètes, j'entraîne des modèles de machine learning et j'automatise les tâches répétitives qui ralentissent les équipes.",
       "Mon parcours n'est pas linéaire : titulaire d'une licence en droit public, je me suis tourné vers le développement puis vers la data et l'IA à Epitech Bénin. Ce double regard m'aide à cerner les enjeux métier, réglementaires et de protection des données avant d'écrire la première ligne de code.",
       "Je travaille avec un workflow IA-first (Claude Code, Cursor, Codex, Replit) pour itérer vite sans sacrifier la qualité. Mon objectif : contribuer à des projets web, mobile, CRM et IA à impact réel, avec une exposition internationale.",
     ],
     facts: [
       { label: "Basé à", value: "Abomey-Calavi, Bénin" },
       { label: "Langues", value: "Français · Anglais (C1) · Espagnol" },
+      { label: "Entreprise", value: "Co-fondateur de Danxo Labs" },
       { label: "Formation", value: "Epitech Bénin · Licence en droit public" },
       { label: "Qualités", value: "Esprit d'analyse, autonomie, adaptabilité, travail d'équipe" },
     ],
@@ -81,6 +82,16 @@ const fr = {
     label: "Parcours",
     title: "Expérience professionnelle",
     items: [
+      {
+        period: "2026 — aujourd'hui",
+        role: "Co-fondateur",
+        org: "Danxo Labs — agence digitale, Bénin",
+        points: [
+          "Co-fondé une agence digitale qui conçoit des sites vitrines, des boutiques en ligne, des applications et des solutions IA sur mesure.",
+          "Conçu et développé le site de l'agence (danxolabs.com) : Next.js, version française et anglaise, assistant IA pour les visiteurs, blog et diagnostic gratuit.",
+        ],
+        tags: ["Entrepreneuriat", "Next.js", "TypeScript", "IA"],
+      },
       {
         period: "2026",
         role: "Développeur IA & Cybersécurité — stage",

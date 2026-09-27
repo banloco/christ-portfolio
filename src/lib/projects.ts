@@ -29,6 +29,55 @@ type Project = {
 /** Ordre d'affichage = ordre du tableau. */
 const projects: Project[] = [
   {
+    id: "jarvis",
+    categories: ["data"],
+    year: "2026",
+    stack: ["Python", "Ollama · Qwen 2.5", "MediaPipe", "openWakeWord", "Vosk", "Scikit-Learn"],
+    metric: "23",
+    github: "https://github.com/banloco/jarvis",
+    text: {
+      fr: {
+        title: "J.A.R.V.I.S — assistant vocal open source",
+        context: "Projet open source",
+        description:
+          "Mon propre assistant façon Iron Man, pour Windows : réveil « Hey Jarvis », modèle de langage local qui appelle des outils, mémoire à long terme par embeddings, gestes de la main à la webcam et affichage holographique. Tourne sur un simple PC sans carte graphique, sans API payante.",
+        metricLabel: "outils pilotables à la voix",
+      },
+      en: {
+        title: "J.A.R.V.I.S — open-source voice assistant",
+        context: "Open-source project",
+        description:
+          "My own Iron Man-style assistant for Windows: \"Hey Jarvis\" wake word, a local language model calling tools, long-term memory with embeddings, webcam hand gestures and a holographic display. Runs on a regular CPU-only PC, with no paid API.",
+        metricLabel: "voice-controlled tools",
+      },
+    },
+  },
+  {
+    id: "eolekare",
+    categories: ["web"],
+    year: "2026",
+    stack: ["React", "Vite", "Laravel API", "Tailwind CSS", "Stripe", "Mobile Money"],
+    metric: "124",
+    github: "https://github.com/banloco/eolekare",
+    live: "https://www.eolekare.com",
+    text: {
+      fr: {
+        title: "Eolekare — e-commerce skincare",
+        context: "Projet client",
+        description:
+          "Boutique en ligne d'une marque de soins naturels « made in Bénin », avec deux vitrines (Bénin en FCFA, Europe en EUR), paiement Mobile Money et Stripe, livraison en point relais, version FR / EN et tableau de bord d'administration (commandes, chiffre d'affaires, exports).",
+        metricLabel: "commits, de la maquette à la production",
+      },
+      en: {
+        title: "Eolekare — skincare e-commerce",
+        context: "Client project",
+        description:
+          "Online store for a natural skincare brand made in Benin, with two storefronts (Benin in FCFA, Europe in EUR), Mobile Money and Stripe payments, parcel-locker delivery, FR / EN versions and an admin dashboard (orders, revenue, exports).",
+        metricLabel: "commits, from mock-up to production",
+      },
+    },
+  },
+  {
     id: "cnss-ids",
     categories: ["data", "security"],
     year: "2026",
@@ -77,24 +126,23 @@ const projects: Project[] = [
     },
   },
   {
-    id: "tech-blog",
-    categories: ["web"],
-    year: "2025 – 2026",
-    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
-    github: "https://github.com/banloco/tech_blog",
-    live: "https://tech-blog-puce.vercel.app",
+    id: "danxolabs",
+    categories: ["web", "data"],
+    year: "2026",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Assistant IA", "i18n FR / EN"],
+    live: "https://www.danxolabs.com",
     text: {
       fr: {
-        title: "IA & Capital — blog tech",
-        context: "Projet personnel",
+        title: "Danxo Labs — site de l'agence",
+        context: "Co-fondateur",
         description:
-          "Blog sur l'intelligence artificielle appliquée à la finance : authentification, gestion des articles, commentaires en temps réel, SEO avancé et monétisation Google AdSense.",
+          "Site de l'agence digitale que j'ai co-fondée : présentation des offres, pages services, blog, diagnostic gratuit et assistant IA qui répond aux visiteurs, en français et en anglais.",
       },
       en: {
-        title: "AI & Capital — tech blog",
-        context: "Personal project",
+        title: "Danxo Labs — agency website",
+        context: "Co-founder",
         description:
-          "A blog about AI applied to finance: authentication, article management, real-time comments, advanced SEO and Google AdSense monetisation.",
+          "Website of the digital agency I co-founded: services and pricing, service pages, blog, a free assessment and an AI assistant answering visitors, in French and English.",
       },
     },
   },
@@ -155,35 +203,34 @@ const projects: Project[] = [
         title: "Real-Time Network Threat Detector",
         context: "Projet cybersécurité",
         description:
-          "Détection en temps réel de comportements suspects (brute force, scans de ports) : ingestion Kafka, fenêtres glissantes Spark Structured Streaming et alertes visualisées dans Kibana.",
+          "Détection en temps réel des attaques par force brute à partir de logs applicatifs : ingestion Kafka, fenêtres glissantes Spark Structured Streaming, niveaux de menace par IP et alertes visualisées dans Kibana.",
       },
       en: {
         title: "Real-Time Network Threat Detector",
         context: "Cybersecurity project",
         description:
-          "Real-time detection of suspicious behaviour (brute force, port scans): Kafka ingestion, Spark Structured Streaming sliding windows and alerts visualised in Kibana.",
+          "Real-time brute-force attack detection from application logs: Kafka ingestion, Spark Structured Streaming sliding windows, per-IP threat levels and alerts visualised in Kibana.",
       },
     },
   },
   {
-    id: "kazimatch",
-    categories: ["data", "web"],
+    id: "tech-blog",
+    categories: ["web"],
     year: "2025 – 2026",
-    stack: ["Python", "PostgreSQL", "Machine Learning", "NLP", "Web scraping"],
-    github: "https://github.com/banloco/KaziMatch",
-    inProgress: true,
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    live: "https://tech-blog-puce.vercel.app",
     text: {
       fr: {
-        title: "KaziMatch",
+        title: "IA & Capital — blog tech",
         context: "Projet personnel",
         description:
-          "Application d'orientation professionnelle pour les jeunes en Afrique : analyse des offres d'emploi, des métiers qui recrutent et des salaires pour recommander un métier ou une formation.",
+          "Blog sur l'intelligence artificielle appliquée à la finance : authentification, gestion des articles, commentaires en temps réel, SEO avancé et monétisation Google AdSense.",
       },
       en: {
-        title: "KaziMatch",
+        title: "AI & Capital — tech blog",
         context: "Personal project",
         description:
-          "A career-guidance app for young people in Africa: it analyses job listings, in-demand roles and salaries to recommend a career or a training path.",
+          "A blog about AI applied to finance: authentication, article management, real-time comments, advanced SEO and Google AdSense monetisation.",
       },
     },
   },
@@ -271,47 +318,6 @@ const projects: Project[] = [
         context: "Epitech Benin",
         description:
           "An online review social network with authentication, content publishing and moderation, built on a Laravel REST API and a Vue.js front end.",
-      },
-    },
-  },
-  {
-    id: "finance-app",
-    categories: ["web"],
-    year: "2025",
-    stack: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite"],
-    github: "https://github.com/banloco/Personal-Financial-App",
-    text: {
-      fr: {
-        title: "Personal Finance App",
-        context: "Projet personnel",
-        description:
-          "Application de gestion des finances personnelles : suivi des transactions, catégorisation, budgets, visualisation des dépenses et objectifs d'épargne.",
-      },
-      en: {
-        title: "Personal Finance App",
-        context: "Personal project",
-        description:
-          "A personal finance app: transaction tracking, categorisation, budgets, spending charts and savings goals.",
-      },
-    },
-  },
-  {
-    id: "symfony-blog",
-    categories: ["web"],
-    year: "2025",
-    stack: ["Symfony", "PHP", "MySQL", "Twig", "Doctrine"],
-    text: {
-      fr: {
-        title: "Blog Symfony",
-        context: "Projet personnel",
-        description:
-          "Blog fullstack sous Symfony 7.2 : articles et catégories, commentaires, authentification et interface d'administration complète.",
-      },
-      en: {
-        title: "Symfony blog",
-        context: "Personal project",
-        description:
-          "A full-stack Symfony 7.2 blog: articles and categories, comments, authentication and a complete admin panel.",
       },
     },
   },

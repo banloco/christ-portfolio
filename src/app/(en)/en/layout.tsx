@@ -1,3 +1,4 @@
+import "../../globals.css";
 import type { Metadata } from "next";
 import RootShell, { buildMetadata } from "@/components/RootShell";
 

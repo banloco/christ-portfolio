@@ -41,13 +41,14 @@ const en: Dictionary = {
     label: "About",
     title: "A hybrid profile, focused on results",
     paragraphs: [
-      "I'm a full-stack and data / AI developer. Day to day, I build complete web applications, train machine-learning models and automate the repetitive tasks that slow teams down.",
+      "I'm a full-stack and data / AI developer and the co-founder of the digital agency Danxo Labs. Day to day, I build complete web applications, train machine-learning models and automate the repetitive tasks that slow teams down.",
       "My path hasn't been a straight line: I hold a bachelor's degree in public law, then moved into software development and later data and AI at Epitech Benin. That dual perspective helps me understand business, regulatory and data-protection concerns before writing the first line of code.",
       "I work with an AI-first workflow (Claude Code, Cursor, Codex, Replit) to iterate fast without cutting corners. My goal: contribute to web, mobile, CRM and AI projects with real-world impact and international reach.",
     ],
     facts: [
       { label: "Based in", value: "Abomey-Calavi, Benin" },
       { label: "Languages", value: "French · English (C1) · Spanish" },
+      { label: "Company", value: "Co-founder of Danxo Labs" },
       { label: "Education", value: "Epitech Benin · Bachelor's in public law" },
       { label: "Strengths", value: "Analytical mind, autonomy, adaptability, teamwork" },
     ],
@@ -83,6 +84,16 @@ const en: Dictionary = {
     label: "Experience",
     title: "Professional experience",
     items: [
+      {
+        period: "2026 — present",
+        role: "Co-founder",
+        org: "Danxo Labs — digital agency, Benin",
+        points: [
+          "Co-founded a digital agency building websites, online stores, applications and custom AI solutions.",
+          "Designed and built the agency's website (danxolabs.com): Next.js, French and English versions, an AI assistant for visitors, a blog and a free assessment.",
+        ],
+        tags: ["Entrepreneurship", "Next.js", "TypeScript", "AI"],
+      },
       {
         period: "2026",
         role: "AI & Cybersecurity Developer — internship",
