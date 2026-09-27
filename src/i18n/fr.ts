@@ -19,8 +19,10 @@ const fr = {
   hero: {
     badge: "Disponible pour missions freelance et opportunités",
     kicker: "Développeur Fullstack · Data / IA · Cybersécurité",
-    title: "Je conçois des applications web et des systèmes d'IA",
-    titleAccent: "qui font gagner du temps.",
+    titleStart: "Je conçois des",
+    rotating: ["applications web", "modèles d'IA", "pipelines data", "outils de sécurité", "automatisations"],
+    titleEnd: "qui font gagner du temps.",
+    greeting: "Salut, moi c'est",
     intro:
       "Basé à Abomey-Calavi, formé à Epitech et juriste de formation, je relie le code, la donnée et les enjeux métier pour livrer des solutions à l'impact mesurable.",
     ctaProjects: "Voir mes projets",
@@ -31,7 +33,7 @@ const fr = {
     stats: [
       { value: "~90 %", label: "de temps de détection d'intrusion en moins" },
       { value: "+40 %", label: "de prospects qualifiés pour un client" },
-      { value: "92 %", label: "de précision sur un modèle de vision" },
+      { value: "2", label: "sites e-commerce livrés en production" },
       { value: "2×", label: "plus rapide que les délais estimés" },
     ],
   },
@@ -114,17 +116,6 @@ const fr = {
         ],
         tags: ["Python", "Flask", "OpenAI", "React", "Laravel", "VPS"],
       },
-      {
-        period: "2025",
-        role: "Projets techniques",
-        org: "Epitech Bénin",
-        points: [
-          "Analyse de sentiment sur plus de 10 000 commentaires Reddit (Kafka, TF-IDF, Scikit-Learn) : 85 % de précision.",
-          "Réseau de neurones convolutif sur FashionMNIST : 92 % de précision sur 70 000 images.",
-          "YOWL, plateforme sociale d'avis avec authentification et modération (Laravel, Vue.js).",
-        ],
-        tags: ["NLP", "Deep learning", "Kafka", "Laravel", "Vue.js"],
-      },
     ],
     education: "Formation",
     degrees: [
@@ -141,12 +132,12 @@ const fr = {
   projects: {
     label: "Projets",
     title: "Projets sélectionnés",
-    intro: "Missions clients, stage et projets personnels : du web à l'IA en passant par la sécurité.",
-    filters: { all: "Tous", web: "Web", data: "Data & IA", security: "Cybersécurité" },
-    code: "Code",
-    live: "Voir en ligne",
-    private: "Projet client — code confidentiel",
-    inProgress: "En cours",
+    intro: "Une sélection courte, avec des résultats concrets : produits en ligne, missions clients et projets open source.",
+    code: "Voir le code",
+    live: "Voir le site",
+    private: "Code confidentiel",
+    other: "Autres projets",
+    illustration: "Illustration",
     more: "Tous mes dépôts sur GitHub",
   },
   skills: {

@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono, Sora } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
+import MotionProvider from "@/components/motion/MotionProvider";
+import ScrollProgress from "@/components/motion/ScrollProgress";
 import { homePath, locales, ogLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
 
-const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], weight: ["500", "600", "700"] });
+const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400", "600", "700"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], weight: ["400", "500"] });
 
-export const fontClasses = `${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable}`;
+export const fontClasses = `${sora.variable} ${inter.variable} ${jetbrains.variable}`;
 
 export function buildMetadata(lang: Locale): Metadata {
   const t = getDictionary(lang).meta;
@@ -75,10 +77,13 @@ export default function RootShell({ lang, children }: { lang: Locale; children: 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(lang)) }}
         />
       </head>
-      <body className="min-h-screen bg-ink font-sans text-fg">
-        <Header lang={lang} t={t.nav} />
-        <main>{children}</main>
-        <Footer t={t.footer} />
+      <body className="grain min-h-screen overflow-x-clip bg-ink font-sans text-fg">
+        <MotionProvider>
+          <ScrollProgress />
+          <Header lang={lang} t={t.nav} />
+          <main>{children}</main>
+          <Footer t={t.footer} />
+        </MotionProvider>
         <RevealObserver />
       </body>
     </html>

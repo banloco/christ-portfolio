@@ -1,28 +1,35 @@
 import type { Locale } from "@/i18n/config";
 
-export type ProjectCategory = "web" | "data" | "security";
+/** Illustrations animées pour les projets sans capture montrable (code confidentiel, application de bureau). */
+export type ProjectCover = "reactor" | "radar" | "chat" | "alerts";
 
 type ProjectText = {
   title: string;
   context: string;
+  /** Une phrase d'accroche. */
+  summary: string;
   description: string;
   metricLabel?: string;
-  /** Remplace le chiffre commun quand il doit être traduit. */
-  metric?: string;
+  /** Points forts affichés sur les projets mis en avant. */
+  highlights?: string[];
 };
 
 type Project = {
   id: string;
-  categories: ProjectCategory[];
   year: string;
   stack: string[];
-  /** Chiffre mis en avant sur la carte (optionnel). */
   metric?: string;
   github?: string;
   live?: string;
   /** Projet client ou interne : pas de code public. */
   private?: boolean;
-  inProgress?: boolean;
+  /** Grande présentation en tête de section. */
+  featured?: boolean;
+  /** Capture principale (et éventuellement une seconde, affichée en retrait). */
+  images?: { src: string; width: number; height: number }[];
+  cover?: ProjectCover;
+  /** Couleur d'accent du projet (halo derrière le visuel). */
+  accent: string;
   text: Record<Locale, ProjectText>;
 };
 
@@ -30,294 +37,226 @@ type Project = {
 const projects: Project[] = [
   {
     id: "jarvis",
-    categories: ["data"],
     year: "2026",
     stack: ["Python", "Ollama · Qwen 2.5", "MediaPipe", "openWakeWord", "Vosk", "Scikit-Learn"],
     metric: "23",
     github: "https://github.com/banloco/jarvis",
+    featured: true,
+    cover: "reactor",
+    accent: "#22d3ee",
     text: {
       fr: {
-        title: "J.A.R.V.I.S — assistant vocal open source",
+        title: "J.A.R.V.I.S",
         context: "Projet open source",
+        summary: "Un assistant vocal façon Iron Man, 100 % local, qui tourne sur un simple PC.",
         description:
-          "Mon propre assistant façon Iron Man, pour Windows : réveil « Hey Jarvis », modèle de langage local qui appelle des outils, mémoire à long terme par embeddings, gestes de la main à la webcam et affichage holographique. Tourne sur un simple PC sans carte graphique, sans API payante.",
+          "Réveil « Hey Jarvis », modèle de langage local qui appelle des outils, mémoire à long terme par embeddings, gestes de la main à la webcam et affichage holographique. Aucune API payante, aucune carte graphique nécessaire.",
         metricLabel: "outils pilotables à la voix",
+        highlights: [
+          "LLM local (Qwen 2.5 via Ollama) avec appels d'outils",
+          "Reconnaissance des gestes : MediaPipe + réseau de neurones entraîné",
+          "Mémoire sémantique par embeddings multilingues",
+        ],
       },
       en: {
-        title: "J.A.R.V.I.S — open-source voice assistant",
+        title: "J.A.R.V.I.S",
         context: "Open-source project",
+        summary: "An Iron Man-style voice assistant, fully local, running on a regular PC.",
         description:
-          "My own Iron Man-style assistant for Windows: \"Hey Jarvis\" wake word, a local language model calling tools, long-term memory with embeddings, webcam hand gestures and a holographic display. Runs on a regular CPU-only PC, with no paid API.",
+          "\"Hey Jarvis\" wake word, a local language model calling tools, long-term memory with embeddings, webcam hand gestures and a holographic display. No paid API, no graphics card required.",
         metricLabel: "voice-controlled tools",
+        highlights: [
+          "Local LLM (Qwen 2.5 on Ollama) with tool calling",
+          "Gesture recognition: MediaPipe + a trained neural network",
+          "Semantic memory with multilingual embeddings",
+        ],
       },
     },
   },
   {
     id: "eolekare",
-    categories: ["web"],
     year: "2026",
     stack: ["React", "Vite", "Laravel API", "Tailwind CSS", "Stripe", "Mobile Money"],
-    metric: "124",
     github: "https://github.com/banloco/eolekare",
     live: "https://www.eolekare.com",
+    featured: true,
+    images: [
+      { src: "/projects/eolekare-shop.webp", width: 1440, height: 900 },
+      { src: "/projects/eolekare-home.webp", width: 1440, height: 900 },
+    ],
+    accent: "#f5c26b",
     text: {
       fr: {
-        title: "Eolekare — e-commerce skincare",
-        context: "Projet client",
+        title: "Eolekare",
+        context: "Projet client · e-commerce",
+        summary: "La boutique en ligne d'une marque de soins naturels « made in Bénin », en production.",
         description:
-          "Boutique en ligne d'une marque de soins naturels « made in Bénin », avec deux vitrines (Bénin en FCFA, Europe en EUR), paiement Mobile Money et Stripe, livraison en point relais, version FR / EN et tableau de bord d'administration (commandes, chiffre d'affaires, exports).",
-        metricLabel: "commits, de la maquette à la production",
+          "Deux vitrines (Bénin en FCFA, Europe en EUR), paiement Mobile Money et Stripe, livraison en point relais, version française et anglaise, et un back-office complet pour gérer produits, commandes et chiffre d'affaires.",
+        highlights: [
+          "Front React + API Laravel, déployés en continu",
+          "Paiements Mobile Money (Bénin) et Stripe (Europe)",
+          "Tableau de bord admin : commandes, CA, exports",
+        ],
       },
       en: {
-        title: "Eolekare — skincare e-commerce",
-        context: "Client project",
+        title: "Eolekare",
+        context: "Client project · e-commerce",
+        summary: "The live online store of a natural skincare brand made in Benin.",
         description:
-          "Online store for a natural skincare brand made in Benin, with two storefronts (Benin in FCFA, Europe in EUR), Mobile Money and Stripe payments, parcel-locker delivery, FR / EN versions and an admin dashboard (orders, revenue, exports).",
-        metricLabel: "commits, from mock-up to production",
+          "Two storefronts (Benin in FCFA, Europe in EUR), Mobile Money and Stripe payments, parcel-locker delivery, French and English versions, and a full back office for products, orders and revenue.",
+        highlights: [
+          "React front end + Laravel API, continuously deployed",
+          "Mobile Money (Benin) and Stripe (Europe) payments",
+          "Admin dashboard: orders, revenue, exports",
+        ],
       },
     },
   },
   {
     id: "cnss-ids",
-    categories: ["data", "security"],
     year: "2026",
-    stack: ["Python", "Scikit-Learn", "Random Forest", "Dashboard"],
+    stack: ["Python", "Scikit-Learn", "Random Forest", "Détection d'anomalies"],
     metric: "~90 %",
     private: true,
+    featured: true,
+    cover: "radar",
+    accent: "#34d399",
     text: {
       fr: {
-        title: "Détection d'intrusions réseau par IA",
+        title: "Détection d'intrusions par IA",
         context: "Stage · CNSS, siège social",
+        summary: "Un modèle de machine learning qui surveille le réseau d'une institution nationale en temps réel.",
         description:
-          "Modèle Random Forest qui analyse les flux de paquets en temps réel pour repérer les tentatives d'intrusion sur le périmètre du réseau interne, avec un tableau de bord d'alertes instantanées déployé au siège.",
+          "Modèle Random Forest qui analyse les flux de paquets du périmètre réseau, classe automatiquement le trafic et alimente un tableau de bord d'alertes instantanées, déployé dans l'infrastructure du siège.",
         metricLabel: "de temps de détection en moins",
+        highlights: [
+          "100 % du trafic périmétrique couvert",
+          "Fin des revues manuelles quotidiennes de logs",
+          "Tableau de bord d'alertes pour l'équipe sécurité",
+        ],
       },
       en: {
-        title: "AI-powered network intrusion detection",
+        title: "AI intrusion detection",
         context: "Internship · CNSS headquarters",
+        summary: "A machine-learning model watching a national institution's network in real time.",
         description:
-          "A Random Forest model analysing packet flows in real time to flag intrusion attempts on the internal network perimeter, with an instant-alert dashboard deployed at headquarters.",
+          "A Random Forest model analysing perimeter packet flows, classifying traffic automatically and feeding an instant-alert dashboard deployed within the headquarters infrastructure.",
         metricLabel: "less time to detect intrusions",
-      },
-    },
-  },
-  {
-    id: "whatsapp-bot",
-    categories: ["data", "web"],
-    year: "2025",
-    stack: ["Python", "Flask", "OpenAI API", "WhatsApp"],
-    metric: "+40 %",
-    private: true,
-    text: {
-      fr: {
-        title: "Chatbot WhatsApp de qualification de prospects",
-        context: "Mission freelance",
-        description:
-          "Assistant conversationnel qui dialogue avec les contacts entrants sur WhatsApp, pose les bonnes questions et filtre automatiquement les prospects sérieux pour l'équipe commerciale.",
-        metricLabel: "de leads validés par mois",
-      },
-      en: {
-        title: "WhatsApp lead-qualification chatbot",
-        context: "Freelance project",
-        description:
-          "A conversational assistant that talks with inbound contacts on WhatsApp, asks the right questions and automatically filters serious leads for the sales team.",
-        metricLabel: "more qualified leads per month",
+        highlights: [
+          "100% of perimeter traffic covered",
+          "No more daily manual log reviews",
+          "Alert dashboard for the security team",
+        ],
       },
     },
   },
   {
     id: "danxolabs",
-    categories: ["web", "data"],
     year: "2026",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Assistant IA", "i18n FR / EN"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Assistant IA", "FR / EN"],
     live: "https://www.danxolabs.com",
+    featured: true,
+    images: [{ src: "/projects/danxolabs.webp", width: 1440, height: 900 }],
+    accent: "#2dd4bf",
     text: {
       fr: {
-        title: "Danxo Labs — site de l'agence",
-        context: "Co-fondateur",
+        title: "Danxo Labs",
+        context: "Co-fondateur · agence digitale",
+        summary: "Le site de l'agence digitale que j'ai co-fondée, conçu et développé de A à Z.",
         description:
-          "Site de l'agence digitale que j'ai co-fondée : présentation des offres, pages services, blog, diagnostic gratuit et assistant IA qui répond aux visiteurs, en français et en anglais.",
+          "Présentation des offres, pages services, blog, diagnostic gratuit et assistant IA qui répond aux visiteurs, en français et en anglais, avec un soin particulier pour le référencement et les animations.",
+        highlights: [
+          "Next.js, version française et anglaise",
+          "Assistant IA intégré pour les visiteurs",
+          "SEO : données structurées, sitemap, pages services",
+        ],
       },
       en: {
-        title: "Danxo Labs — agency website",
-        context: "Co-founder",
+        title: "Danxo Labs",
+        context: "Co-founder · digital agency",
+        summary: "The website of the digital agency I co-founded, designed and built end to end.",
         description:
-          "Website of the digital agency I co-founded: services and pricing, service pages, blog, a free assessment and an AI assistant answering visitors, in French and English.",
+          "Services and pricing, service pages, a blog, a free assessment and an AI assistant answering visitors, in French and English, with close attention to SEO and motion design.",
+        highlights: [
+          "Next.js, French and English versions",
+          "Built-in AI assistant for visitors",
+          "SEO: structured data, sitemap, service pages",
+        ],
       },
     },
   },
   {
-    id: "ecommerce",
-    categories: ["web"],
+    id: "whatsapp-bot",
     year: "2025",
-    stack: ["React", "Laravel", "REST API", "VPS Hostinger"],
+    stack: ["Python", "Flask", "OpenAI API", "WhatsApp"],
+    metric: "+40 %",
     private: true,
+    cover: "chat",
+    accent: "#25d366",
     text: {
       fr: {
-        title: "Boutique e-commerce événementielle",
+        title: "Chatbot WhatsApp de qualification",
         context: "Mission freelance",
+        summary: "Un assistant qui trie les prospects d'un client directement sur WhatsApp.",
         description:
-          "Site e-commerce complet (catalogue, panier, commandes) livré en six semaines et opérationnel dès le premier jour, avec les premières commandes enregistrées à la mise en ligne.",
-        metric: "6 sem.",
-        metricLabel: "de la conception à la mise en ligne",
+          "Il dialogue avec les contacts entrants, pose les bonnes questions et ne transmet à l'équipe commerciale que les prospects sérieux.",
+        metricLabel: "de leads validés par mois",
       },
       en: {
-        title: "Event-shop e-commerce site",
+        title: "WhatsApp qualification chatbot",
         context: "Freelance project",
+        summary: "An assistant sorting a client's leads directly on WhatsApp.",
         description:
-          "A complete online store (catalogue, cart, orders) delivered in six weeks and live from day one, with the first orders placed at launch.",
-        metric: "6 wks",
-        metricLabel: "from design to launch",
+          "It talks with inbound contacts, asks the right questions and only hands serious leads over to the sales team.",
+        metricLabel: "more validated leads per month",
       },
     },
   },
   {
     id: "olist-bi",
-    categories: ["data"],
     year: "2025",
-    stack: ["Python", "PostgreSQL", "dbt", "Scikit-Learn", "Streamlit", "Docker"],
+    stack: ["Python", "PostgreSQL", "dbt", "Scikit-Learn", "Metabase", "Docker"],
     github: "https://github.com/banloco/business-inteligence-machine-learning",
+    images: [{ src: "/projects/olist-dashboard.webp", width: 1440, height: 722 }],
+    accent: "#60a5fa",
     text: {
       fr: {
-        title: "Business Intelligence & ML (Olist)",
-        context: "Projet data",
+        title: "Business Intelligence & ML",
+        context: "Projet data · e-commerce Olist",
+        summary: "De 100 000 commandes brutes à des segments clients exploitables.",
         description:
-          "Pipeline Bronze → Silver → Gold qui transforme les données e-commerce Olist en indicateurs BI, avec segmentation RFM, prédiction du churn et tableau de bord Streamlit.",
+          "Pipeline Bronze → Silver → Gold avec dbt sur PostgreSQL, segmentation RFM, modèle de churn et tableaux de bord Metabase pour les équipes marketing.",
       },
       en: {
-        title: "Business Intelligence & ML (Olist)",
-        context: "Data project",
+        title: "Business Intelligence & ML",
+        context: "Data project · Olist e-commerce",
+        summary: "From 100,000 raw orders to actionable customer segments.",
         description:
-          "A Bronze → Silver → Gold pipeline turning Olist e-commerce data into BI metrics, with RFM segmentation, churn prediction and a Streamlit dashboard.",
+          "A Bronze → Silver → Gold pipeline with dbt on PostgreSQL, RFM segmentation, a churn model and Metabase dashboards for marketing teams.",
       },
     },
   },
   {
     id: "threat-detector",
-    categories: ["security", "data"],
     year: "2025",
     stack: ["Kafka", "Spark Streaming", "Elasticsearch", "Kibana", "Docker"],
     github: "https://github.com/banloco/Real_Time_Network_Threat_Detector",
+    cover: "alerts",
+    accent: "#f87171",
     text: {
       fr: {
-        title: "Real-Time Network Threat Detector",
+        title: "Real-Time Threat Detector",
         context: "Projet cybersécurité",
+        summary: "Détection des attaques par force brute en temps réel.",
         description:
-          "Détection en temps réel des attaques par force brute à partir de logs applicatifs : ingestion Kafka, fenêtres glissantes Spark Structured Streaming, niveaux de menace par IP et alertes visualisées dans Kibana.",
+          "Ingestion des logs avec Kafka, fenêtres glissantes Spark Structured Streaming, niveau de menace calculé par IP et alertes visualisées dans Kibana.",
       },
       en: {
-        title: "Real-Time Network Threat Detector",
+        title: "Real-Time Threat Detector",
         context: "Cybersecurity project",
+        summary: "Real-time brute-force attack detection.",
         description:
-          "Real-time brute-force attack detection from application logs: Kafka ingestion, Spark Structured Streaming sliding windows, per-IP threat levels and alerts visualised in Kibana.",
-      },
-    },
-  },
-  {
-    id: "tech-blog",
-    categories: ["web"],
-    year: "2025 – 2026",
-    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
-    live: "https://tech-blog-puce.vercel.app",
-    text: {
-      fr: {
-        title: "IA & Capital — blog tech",
-        context: "Projet personnel",
-        description:
-          "Blog sur l'intelligence artificielle appliquée à la finance : authentification, gestion des articles, commentaires en temps réel, SEO avancé et monétisation Google AdSense.",
-      },
-      en: {
-        title: "AI & Capital — tech blog",
-        context: "Personal project",
-        description:
-          "A blog about AI applied to finance: authentication, article management, real-time comments, advanced SEO and Google AdSense monetisation.",
-      },
-    },
-  },
-  {
-    id: "reddit-sentiment",
-    categories: ["data"],
-    year: "2025",
-    stack: ["Kafka", "Python", "TF-IDF", "Scikit-Learn"],
-    metric: "85 %",
-    text: {
-      fr: {
-        title: "Analyse de sentiment sur Reddit",
-        context: "Epitech Bénin",
-        description:
-          "Pipeline NLP qui ingère plus de 10 000 commentaires Reddit en temps réel avec Kafka, les vectorise (TF-IDF) et les classe par sentiment avec un modèle multiclasse.",
-        metricLabel: "de précision sur les données de test",
-      },
-      en: {
-        title: "Reddit sentiment analysis",
-        context: "Epitech Benin",
-        description:
-          "An NLP pipeline ingesting 10,000+ Reddit comments in real time with Kafka, vectorising them (TF-IDF) and classifying their sentiment with a multiclass model.",
-        metricLabel: "accuracy on test data",
-      },
-    },
-  },
-  {
-    id: "crypto-pipeline",
-    categories: ["data"],
-    year: "2025",
-    stack: ["Kafka", "Spark", "InfluxDB", "Grafana", "WebSocket", "Docker"],
-    github: "https://github.com/banloco/mon_projet_streaming",
-    text: {
-      fr: {
-        title: "Crypto Real-Time Analytics Pipeline",
-        context: "Projet data engineering",
-        description:
-          "Pipeline temps réel qui capte le prix du Bitcoin via le WebSocket Binance, calcule des moyennes mobiles avec Spark Structured Streaming et affiche les tendances dans Grafana.",
-      },
-      en: {
-        title: "Crypto Real-Time Analytics Pipeline",
-        context: "Data engineering project",
-        description:
-          "A real-time pipeline capturing Bitcoin prices from the Binance WebSocket, computing moving averages with Spark Structured Streaming and charting trends in Grafana.",
-      },
-    },
-  },
-  {
-    id: "fashion-mnist",
-    categories: ["data"],
-    year: "2025",
-    stack: ["TensorFlow", "Keras", "CNN", "Grid search"],
-    metric: "92 %",
-    text: {
-      fr: {
-        title: "Classification d'images FashionMNIST",
-        context: "Epitech Bénin",
-        description:
-          "Réseau de neurones convolutif entraîné à reconnaître des catégories de vêtements sur 70 000 images, optimisé par recherche d'hyperparamètres.",
-        metricLabel: "de précision",
-      },
-      en: {
-        title: "FashionMNIST image classification",
-        context: "Epitech Benin",
-        description:
-          "A convolutional neural network trained to recognise clothing categories across 70,000 images, tuned with a hyperparameter grid search.",
-        metricLabel: "accuracy",
-      },
-    },
-  },
-  {
-    id: "yowl",
-    categories: ["web"],
-    year: "2025",
-    stack: ["Laravel", "PHP", "Vue.js", "REST API"],
-    text: {
-      fr: {
-        title: "YOWL — plateforme sociale d'avis",
-        context: "Epitech Bénin",
-        description:
-          "Réseau social d'avis en ligne avec authentification, publication de contenu et modération, bâti sur une API REST Laravel et une interface Vue.js.",
-      },
-      en: {
-        title: "YOWL — social review platform",
-        context: "Epitech Benin",
-        description:
-          "An online review social network with authentication, content publishing and moderation, built on a Laravel REST API and a Vue.js front end.",
+          "Log ingestion with Kafka, Spark Structured Streaming sliding windows, per-IP threat levels and alerts visualised in Kibana.",
       },
     },
   },
@@ -330,6 +269,7 @@ export function getProjects(lang: Locale): LocalizedProject[] {
     const localized = { ...project, ...text[lang] };
     // « 90 % » en français, « 90% » en anglais.
     if (lang === "en" && localized.metric) localized.metric = localized.metric.replace(" %", "%");
+    if (lang === "en") localized.stack = localized.stack.map((s) => (s === "Détection d'anomalies" ? "Anomaly detection" : s === "Assistant IA" ? "AI assistant" : s));
     return localized;
   });
 }

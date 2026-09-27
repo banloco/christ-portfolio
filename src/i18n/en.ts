@@ -21,8 +21,10 @@ const en: Dictionary = {
   hero: {
     badge: "Available for freelance work and new opportunities",
     kicker: "Full-Stack Developer · Data / AI · Cybersecurity",
-    title: "I build web applications and AI systems",
-    titleAccent: "that save people time.",
+    titleStart: "I build",
+    rotating: ["web applications", "AI models", "data pipelines", "security tools", "automations"],
+    titleEnd: "that save people time.",
+    greeting: "Hi, I'm",
     intro:
       "Based in Abomey-Calavi, trained at Epitech and with a background in law, I bring code, data and business needs together to deliver solutions with measurable impact.",
     ctaProjects: "See my projects",
@@ -33,7 +35,7 @@ const en: Dictionary = {
     stats: [
       { value: "~90%", label: "less time to detect network intrusions" },
       { value: "+40%", label: "more qualified leads for a client" },
-      { value: "92%", label: "accuracy on a computer-vision model" },
+      { value: "2", label: "e-commerce sites shipped to production" },
       { value: "2×", label: "faster than initial estimates" },
     ],
   },
@@ -116,17 +118,6 @@ const en: Dictionary = {
         ],
         tags: ["Python", "Flask", "OpenAI", "React", "Laravel", "VPS"],
       },
-      {
-        period: "2025",
-        role: "Technical projects",
-        org: "Epitech Benin",
-        points: [
-          "Sentiment analysis on 10,000+ Reddit comments (Kafka, TF-IDF, Scikit-Learn): 85% accuracy.",
-          "Convolutional neural network on FashionMNIST: 92% accuracy across 70,000 images.",
-          "YOWL, a social review platform with authentication and moderation (Laravel, Vue.js).",
-        ],
-        tags: ["NLP", "Deep learning", "Kafka", "Laravel", "Vue.js"],
-      },
     ],
     education: "Education",
     degrees: [
@@ -143,12 +134,12 @@ const en: Dictionary = {
   projects: {
     label: "Projects",
     title: "Selected projects",
-    intro: "Client work, internship and personal projects: from the web to AI, by way of security.",
-    filters: { all: "All", web: "Web", data: "Data & AI", security: "Cybersecurity" },
-    code: "Code",
-    live: "Live site",
-    private: "Client project — private code",
-    inProgress: "In progress",
+    intro: "A short selection with concrete results: live products, client work and open-source projects.",
+    code: "View code",
+    live: "Visit site",
+    private: "Private code",
+    other: "More projects",
+    illustration: "Illustration",
     more: "All my repositories on GitHub",
   },
   skills: {

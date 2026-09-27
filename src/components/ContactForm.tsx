@@ -20,7 +20,7 @@ export default function ContactForm({ t }: { t: Dictionary["contact"] }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-2xl border border-line bg-panel p-6 sm:p-8">
+    <form onSubmit={onSubmit} className="border-gradient rounded-3xl bg-panel/80 p-6 backdrop-blur sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm text-muted">
           {t.name}
