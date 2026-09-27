@@ -32,7 +32,7 @@ function Screen({ project, lang, t, dark, sizes }: { project: LocalizedProject; 
       </div>
       <div className="aspect-[16/10]">
         {main ? (
-          <Image src={main.src} alt={project.title} width={main.width} height={main.height} sizes={sizes} className="size-full object-cover object-top" />
+          <Image src={main.src} alt={`${t.screenshotAlt} ${project.title}`} width={main.width} height={main.height} sizes={sizes} className="size-full object-cover object-top" />
         ) : (
           project.cover && <ProjectCoverArt cover={project.cover} lang={lang} />
         )}

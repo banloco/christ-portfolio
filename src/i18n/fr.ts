@@ -1,8 +1,23 @@
 const fr = {
   meta: {
-    title: "Christ Banidje — Développeur Fullstack & Data / IA",
+    title: "Christ Banidje — Développeur Fullstack & Data / IA au Bénin",
     description:
-      "Développeur fullstack et data / IA basé à Abomey-Calavi (Bénin) : applications web, machine learning, automatisation et cybersécurité. Disponible pour missions freelance et opportunités.",
+      "Christ Banidje, développeur fullstack et data / IA au Bénin : applications web, machine learning, automatisation et cybersécurité. Disponible en freelance.",
+    keywords: [
+      "Christ Banidje",
+      "développeur fullstack Bénin",
+      "développeur web Cotonou",
+      "développeur Abomey-Calavi",
+      "ingénieur data IA Bénin",
+      "machine learning",
+      "développeur freelance Afrique",
+      "Next.js",
+      "React",
+      "Python",
+    ],
+    imageAlt: "Christ Banidje, développeur fullstack et ingénieur data / IA",
+    jobTitle: "Développeur Fullstack & Data / IA",
+    projectsList: "Projets de Christ Banidje",
   },
   nav: {
     about: "À propos",
@@ -139,6 +154,7 @@ const fr = {
     private: "Code confidentiel",
     other: "Autres projets",
     illustration: "Illustration",
+    screenshotAlt: "Capture d'écran du projet",
     more: "Tous mes dépôts sur GitHub",
   },
   skills: {

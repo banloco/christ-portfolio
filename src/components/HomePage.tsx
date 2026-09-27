@@ -82,11 +82,15 @@ function Hero({ t }: { t: Dictionary["hero"] }) {
             <p className="font-mono text-xs text-muted">
               ~/christ-banidje <span className="text-fg">$</span> whoami
             </p>
-            <p className="mt-2 font-mono text-sm font-medium">
-              Christ Banidje <span className="text-muted">· {t.location}</span>
-            </p>
-            <h1 className="mt-6 font-display text-[2.5rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl">
-              {t.headline}
+            {/* Titre principal : le nom (sortie du terminal) puis le métier, lus ensemble par les moteurs de recherche. */}
+            <h1>
+              <span className="mt-2 block font-mono text-sm font-medium">
+                Christ Banidje <span className="text-muted">· {t.location}</span>
+              </span>
+              <span className="sr-only"> — </span>
+              <span className="mt-6 block font-display text-[2.5rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl">
+                {t.headline}
+              </span>
             </h1>
             <p className="mt-6 text-xl font-medium leading-relaxed sm:text-2xl">
               {t.titleStart} <RotatingWords words={t.rotating} />

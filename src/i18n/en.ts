@@ -2,9 +2,24 @@ import type { Dictionary } from "./fr";
 
 const en: Dictionary = {
   meta: {
-    title: "Christ Banidje — Full-Stack & Data / AI Developer",
+    title: "Christ Banidje — Full-Stack & Data / AI Developer in Benin",
     description:
-      "Full-stack and data / AI developer based in Abomey-Calavi, Benin: web applications, machine learning, automation and cybersecurity. Available for freelance work and new opportunities.",
+      "Christ Banidje, full-stack and data / AI developer in Benin: web apps, machine learning, automation and cybersecurity. Available for freelance and remote work.",
+    keywords: [
+      "Christ Banidje",
+      "full-stack developer Benin",
+      "web developer Cotonou",
+      "data AI engineer Africa",
+      "machine learning engineer",
+      "freelance developer Africa",
+      "remote full-stack developer",
+      "Next.js",
+      "React",
+      "Python",
+    ],
+    imageAlt: "Christ Banidje, full-stack developer and data / AI engineer",
+    jobTitle: "Full-Stack & Data / AI Developer",
+    projectsList: "Projects by Christ Banidje",
   },
   nav: {
     about: "About",
@@ -141,6 +156,7 @@ const en: Dictionary = {
     private: "Private code",
     other: "More projects",
     illustration: "Illustration",
+    screenshotAlt: "Screenshot of the project",
     more: "All my repositories on GitHub",
   },
   skills: {
